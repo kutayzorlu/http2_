@@ -100,6 +100,39 @@ name | version | language | role(s) | negotiation(s) | protocol id(s) | refer
 [iij-http2](https://github.com/shigeki/interop-iij-http2) | NodeJS | | client, server| ALPN, NPN | h2-13
 [http2-go](https://github.com/Jxck/http2) | Go | | client, server | NPN | h2-12
 
+## - PHP Based
+
+  Using Apache wouldn't be practical as it's using a nuclear bomb when a firecracker will suffice. Creating a PHP server is quite simple on Linux with the help of xinetd.
+
+  Modify /etc/services. Say you want your service to run on port 56789. In /etc/services, add the line:
+
+  gpsservice   56789/tcp
+
+  In /etc/xinet.d/, create a file named gpsservice:
+
+  service gpsservice 
+  {
+      socket_type             = stream
+      protocol                = tcp
+      wait                    = no
+      user                    = yourusername
+      server                  = /path/to/your/script
+      log_on_success          = HOST PID
+      disable                 = no
+  }
+
+  Create your PHP script (chmod it to be executable):
+
+  #!/usr/bin/php
+  <?php
+  // do stuff
+  ?>
+
+  Restart xinetd service xinetd restart
+
+  You now have a quick TCP server written in PHP.
+
+
 
 
 ###  Ref
