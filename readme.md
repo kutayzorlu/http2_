@@ -99,3 +99,8 @@ name | version | language | role(s) | negotiation(s) | protocol id(s) | refer
 [http2-perl](https://github.com/sludin/http2-perl) | Perl | | client, server | NPN | h2-04
 [iij-http2](https://github.com/shigeki/interop-iij-http2) | NodeJS | | client, server| ALPN, NPN | h2-13
 [http2-go](https://github.com/Jxck/http2) | Go | | client, server | NPN | h2-12
+
+
+
+###  Ref
+  * https://http2.github.io/faq/#is-it-http20-or-http2
